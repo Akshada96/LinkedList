@@ -16,6 +16,7 @@ public class LinkedList {
             System.out.print(temp.key+"->");
             temp = temp.next;
         }
+        System.out.println("\n");
     }
     public void push(int data){
         Node newNode = new Node(data);
@@ -56,5 +57,26 @@ public class LinkedList {
             temp = temp.next;
         }
         prevNode.next = null;
+    }
+    public void delete(int data){
+        Node temp = head;
+        Node prevNode = head;
+        while(temp.key != data) {
+            prevNode = temp;
+            temp = temp.next;
+        }
+        if (temp == head)
+            head = head.next;
+        else
+            prevNode.next = temp.next;
+    }
+    public void size(){
+        Node temp = head;
+        int size = 1;
+        while (temp.next != null){
+            size++;
+            temp = temp.next;
+        }
+        System.out.println("Size : "+size);
     }
 }
