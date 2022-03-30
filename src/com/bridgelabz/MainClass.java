@@ -2,13 +2,11 @@ package com.bridgelabz;
 
 public class MainClass {
     public static void main(String[] args){
-        LinkedList list = new LinkedList();
-        list.add(56);
-        list.add(30);
-        list.add(40);
-        list.add(70);
-        list.delete(40);
-        list.display();
-        list.size();
+        SortedLinkedList slist = new SortedLinkedList();
+        slist.add(56);
+        slist.add(30);
+        slist.add(40);
+        slist.add(70);
+        slist.display();
     }
 }
