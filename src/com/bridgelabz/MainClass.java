@@ -7,5 +7,11 @@ public class MainClass {
         s.push(30);
         s.push(56);
         s.display();
+        while (!s.isEmpty()){
+            System.out.println("Top item of stack is "+s.peek());
+            s.pop();
+            System.out.println("After pop");
+            s.display();
+        }
     }
 }
