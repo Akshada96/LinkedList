@@ -1,9 +1,9 @@
 package com.bridgelabz;
 
-public class LinkedList {
-    Node head, tail;
-    public void add(int data){
-        Node newNode = new Node(data);
+public class LinkedList<T> {
+    Node<T> head, tail;
+    public void add(T data){
+        Node<T> newNode = new Node<T>(data);
         if(head == null)
             head = newNode;
         else
@@ -11,15 +11,15 @@ public class LinkedList {
         tail = newNode;
     }
     public void display(){
-        Node temp = head;
+        Node<T> temp = head;
         while (temp != null){
             System.out.print(temp.key+"->");
             temp = temp.next;
         }
         System.out.println("\n");
     }
-    public void push(int data){
-        Node newNode = new Node(data);
+    public void push(T data){
+        Node<T> newNode = new Node(data);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -28,17 +28,17 @@ public class LinkedList {
             head = newNode;
         }
     }
-    public void insertAfter(int prevData,int data){
-        Node newNode = new Node(data);
-        Node searchedNode = this.search(prevData);
+    public void insertAfter(T prevData,T data){
+        Node<T> newNode = new Node(data);
+        Node<T> searchedNode = this.search(prevData);
         if( searchedNode != null){
             newNode.next = searchedNode.next;
             searchedNode.next = newNode;
             //newNode.next = tempNode;
         }
     }
-    public Node search(int data){
-        Node temp = head;
+    public Node<T> search(T data){
+        Node<T> temp = head;
         while(temp != null){
             if(temp.key == data)
                 return temp;
@@ -50,17 +50,17 @@ public class LinkedList {
         head = head.next;
     }
     public void popLast(){
-        Node temp = head;
-        Node prevNode = null;
+        Node<T> temp = head;
+        Node<T> prevNode = null;
         while (temp.next != null) {
             prevNode = temp;
             temp = temp.next;
         }
         prevNode.next = null;
     }
-    public void delete(int data){
-        Node temp = head;
-        Node prevNode = head;
+    public void delete(T data){
+        Node<T> temp = head;
+        Node<T> prevNode = head;
         while(temp.key != data) {
             prevNode = temp;
             temp = temp.next;
@@ -71,7 +71,7 @@ public class LinkedList {
             prevNode.next = temp.next;
     }
     public void size(){
-        Node temp = head;
+        Node<T> temp = head;
         int size = 1;
         while (temp.next != null){
             size++;

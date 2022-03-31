@@ -1,25 +1,19 @@
 package com.bridgelabz;
 
-public class Stack {
-    Node head, tail;
+public class Stack<T> {
+    Node<T> head, tail;
+    LinkedList list = new LinkedList();
     public Stack(){
         head = null;
         tail = null;
     }
-    public void push(int data){
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            newNode.next = head;
-            head = newNode;
-        }
+    public void push(T data){
+        list.push(data);
     }
     public void pop(){
-        head = head.next;
+        list.pop();
     }
-    public int peek(){
+    public T peek(){
         return head.key;
     }
     public boolean isEmpty(){
@@ -29,7 +23,7 @@ public class Stack {
             return false;
     }
     public int size(){
-        Node temp = head;
+        Node<T> temp = head;
         int i = 1;
         while(temp != tail){
             i++;
@@ -38,11 +32,6 @@ public class Stack {
         return i;
     }
     public void display(){
-        Node temp = head;
-        while (temp != null){
-            System.out.print(temp.key+"->");
-            temp = temp.next;
-        }
-        System.out.print("\n");
+        list.display();
     }
 }

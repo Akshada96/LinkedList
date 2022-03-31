@@ -1,27 +1,27 @@
 package com.bridgelabz;
 
-public class SortedLinkedList {
-    Node head, tail;
-    public void add(int data){
-        Node newNode = new Node(data);
+public class SortedLinkedList<T extends Comparable> {
+    Node<T> head, tail;
+    public void add(T data){
+        Node<T> newNode = new Node(data);
         if(head == null){
             head = newNode;
             tail = newNode;
         }
         else{
-            Node temp = head;
-            Node prevNode = head;
-            if (head.key > data){
+            Node<T> temp = head;
+            Node<T> prevNode = head;
+            if (head.key.compareTo(data) > 0){
                     newNode.next = head;
                     head = newNode;
                 }
             else {
-                while (temp.key < data && temp.next != null){
+                while (temp.key.compareTo(data) < 0 && temp.next != null){
                     prevNode = temp;
                     temp = temp.next;
                 }
-                if (temp == tail){
-                    if (temp.key < data){
+                if (temp.equals(tail)){
+                    if (temp.key.compareTo(data) < 0){
                      temp.next = newNode;
                      tail = newNode;
                     }
@@ -38,7 +38,7 @@ public class SortedLinkedList {
         }
     }
     public void display(){
-        Node temp = head;
+        Node<T> temp = head;
         while (temp != null){
             System.out.print(temp.key+"->");
             temp = temp.next;
